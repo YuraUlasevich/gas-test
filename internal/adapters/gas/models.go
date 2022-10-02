@@ -19,7 +19,7 @@ type Transaction struct {
 
 type ResponseData struct {
 	SpentPerMonth         map[string]float64      `json:"spentPerMonth"`
-	TotalСost             float64                 `json:"totalСosts"`
+	TotalCost             float64                 `json:"totalСosts"`
 	AveragePricePerDay    map[string]float64      `json:"averagePricePerDay"`
 	FrequencyDistribution map[string]Distribution `json:"frequencyDistribution"`
 }

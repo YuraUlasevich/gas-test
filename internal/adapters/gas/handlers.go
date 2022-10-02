@@ -37,7 +37,7 @@ func (h *handler) Statistic(w http.ResponseWriter, r *http.Request) {
 	go h.gasService.AveragePricePerDay(&wg, &gasData, &result)
 	go h.gasService.FrequencyDistribution(&wg, &gasData, &result)
 	go h.gasService.SpentPerMonth(&wg, &gasData, &result)
-	go h.gasService.TotalСost(&wg, &gasData, &result)
+	go h.gasService.TotalCost(&wg, &gasData, &result)
 	wg.Wait()
 
 	w.Header().Set("Content-Type", "application/json")

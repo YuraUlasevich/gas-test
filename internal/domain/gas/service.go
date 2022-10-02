@@ -17,7 +17,7 @@ func NewService() gas.Service {
 func (s *service) FrequencyDistribution(wg *sync.WaitGroup, gasData *gas.RequestData, result *gas.ResponseData) {
 	defer wg.Done()
 
-	freqDistr := make(map[string]gas.Distribution)
+	freqDistr := make(map[string]gas.Distribution, 24)
 	for _, v := range gasData.Ethereum.Transactions {
 		time := strings.Split(v.Time, " ")[1]
 		hour := strings.Split(time, ":")[0]
@@ -78,7 +78,7 @@ func (s *service) SpentPerMonth(wg *sync.WaitGroup, gasData *gas.RequestData, re
 	result.SpentPerMonth = spent
 }
 
-func (s *service) TotalСost(wg *sync.WaitGroup, gasData *gas.RequestData, result *gas.ResponseData) {
+func (s *service) TotalCost(wg *sync.WaitGroup, gasData *gas.RequestData, result *gas.ResponseData) {
 	defer wg.Done()
 
 	var total float64
@@ -86,5 +86,5 @@ func (s *service) TotalСost(wg *sync.WaitGroup, gasData *gas.RequestData, resul
 		total += v.GasPrice * v.GasValue
 	}
 
-	result.TotalСost = total
+	result.TotalCost = total
 }
